@@ -1,1 +1,17 @@
-Coming soon!
+<div class="container ">
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+
+        <% @users.each do |freelancer| %>
+            <tr>
+                <td><%= link_to "#{freelancer.id}", user_path(freelancer.id) %></td>
+                <td><%= freelancer.email %></td>
+            </tr>
+        <% end %>
+    </table>
+
+    <%= paginate @users %>
+</div>
