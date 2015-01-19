@@ -30,7 +30,7 @@
                     <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
                 <% else %>
                     <li><%= link_to 'Login', user_omniauth_authorize_path(:linkedin), :class => 'navbar-link' %></li>
-                    <li><%= link_to 'Sign Up', new_user_registration_path, :class => 'navbar-link' %></li>
+                    <li><%= link_to 'Sign Up with LinkedIn', user_omniauth_authorize_path(:linkedin), :class => 'navbar-link' %></li>
                 <% end %>
             </ul>
 
