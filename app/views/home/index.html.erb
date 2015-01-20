@@ -14,7 +14,7 @@
             <p><%= user.email %></p>
             <p><%= user.profile_url %></p>
             <% if user == current_user %>
-                <p><%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-primary" %></p>
+                <p><%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-default" %></p>
             <% end %>
         </div>
     </div>
