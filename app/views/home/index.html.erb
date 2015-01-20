@@ -18,13 +18,13 @@
             <h2 class="media-heading"><%= user.first_name %> <%= user.last_name %><% unless user.available_for_hire %> <small>Unavailable for hire</small><% end %></h2>
             <h4><%= user.headline %></h4>
 
-            <%= mail_to user.email do %>
+            <%= mail_to user.email, class: "social-icon-btn" do %>
                 <i class="btn fa fa-envelope-o fa-2x fa-fw"></i>
                 <% end %>
-            <%= link_to "https://www.twitter.com/#{user.twitter_handle}" do %>
+            <%= link_to "https://www.twitter.com/#{user.twitter_handle}", class: "social-icon-btn" do %>
                 <i class="btn fa fa-twitter fa-2x fa-fw"></i>
                 <% end %>
-            <%= link_to user.profile_url do %>
+            <%= link_to user.profile_url, class: "social-icon-btn" do %>
                     <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
                 <% end %>
             
