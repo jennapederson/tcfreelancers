@@ -36,6 +36,7 @@ describe User do
   })
 
   it { should validate_uniqueness_of(:email) }
+  it { should ensure_length_of(:twitter_handle).is_at_most(15) }
 
   describe "from_omniauth" do
     context "for new user" do

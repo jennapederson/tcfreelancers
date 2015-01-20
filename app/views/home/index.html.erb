@@ -1,20 +1,24 @@
 <% @users.each do |user| %>
-<div class="row">
-    <div class="col-md-4">
-        <h2><%= user.first_name %> <%= user.last_name %></h2>
-        <h4><%= user.headline %></h4>
-
-        <img src="<%= user.profile_image  %>" alt="<%= user.first_name %> <%= user.last_name %>" class="img-circle img-responsive">
+    <div class="media">
+        <div class="pull-left">
+            <a href="#">
+                <img class="media-object img-circle" src="<%= user.profile_image %>" alt="<%= user.first_name %> <%= user.last_name %>">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading"><%= user.first_name %> <%= user.last_name %></h4>
+            <h5><%= user.headline %></h5>
+            <p><%= user.available_for_hire? %></p>
+            <p><%= user.description %></p>
+            <p><%= user.twitter_handle %></p>
+            <p><%= user.email %></p>
+            <p><%= user.profile_url %></p>
+            <% if user == current_user %>
+                <p><%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-primary" %></p>
+            <% end %>
+        </div>
     </div>
-    <div class="col-md-8">
-        <%= user.email %>
-        <%= user.profile_url %>
-    </div>
-</div>
-<% if user == current_user %>
-    <div class="row">
-        <%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-primary" %>
-    </div>
-<% end %>
 <% end %>
 <%= paginate @users %>
+
+
