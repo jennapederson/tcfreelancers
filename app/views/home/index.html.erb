@@ -1,5 +1,14 @@
+<div class="jumbotron">
+      <h1>TCFreelancers</h1>
+      <p>Connect with LinkedIn to add your own freelancer profile or search the list for an available freelancer for your next project.</p>
+      <p><%= button_to user_omniauth_authorize_path(:linkedin), class: 'btn btn-primary btn-lg' do %>
+            <i class="btn fa fa-linkedin fa-2x"></i> Sign Up with LinkedIn
+        <% end %>
+      </p>
+</div>
+
 <% @users.each do |user| %>
-    <div class="media">
+    <div class="media freelancer-media-item">
         <div class="pull-left">
             <a href="#">
                 <img class="media-object img-circle" src="<%= user.profile_image %>" alt="<%= user.first_name %> <%= user.last_name %>">
@@ -8,10 +17,20 @@
         <div class="media-body">
             <h2 class="media-heading"><%= user.first_name %> <%= user.last_name %><% unless user.available_for_hire %> <small>Unavailable for hire</small><% end %></h2>
             <h4><%= user.headline %></h4>
-            <p><%= user.description %></p>
-            <p><%= user.twitter_handle %></p>
-            <p><%= user.email %></p>
-            <p><%= user.profile_url %></p>
+
+            <%= mail_to user.email do %>
+                <i class="btn fa fa-envelope-o fa-2x fa-fw"></i>
+                <% end %>
+            <%= link_to "https://www.twitter.com/#{user.twitter_handle}" do %>
+                <i class="btn fa fa-twitter fa-2x fa-fw"></i>
+                <% end %>
+            <%= link_to user.profile_url do %>
+                    <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
+                <% end %>
+            
+            <p><strong>Specialties:</strong> Data Analysis, Product Management, Project Management, User Experience, Front-end Development</p>            
+            <p><%= user.description %></p>            
+            
             <% if user == current_user %>
                 <p><%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-default" %></p>
             <% end %>
