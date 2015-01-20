@@ -26,8 +26,15 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
-                    <li class="navbar-text">Welcome <strong><%= link_to current_user.email, user_path(current_user), :class => 'navbar-link' %></strong>!</li>
-                    <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            Welcome <%= current_user.first_name %> <%= current_user.last_name %>! <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="navbar-link"><%= link_to 'Edit profile', user_path(current_user), :class => 'navbar-link' %></li>
+                            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+                        </ul>
+                    </li>
                 <% else %>
                     <li><%= link_to 'Login', user_omniauth_authorize_path(:linkedin), :class => 'navbar-link' %></li>
                     <li><%= link_to 'Sign Up with LinkedIn', user_omniauth_authorize_path(:linkedin), :class => 'navbar-link' %></li>
