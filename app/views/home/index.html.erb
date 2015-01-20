@@ -8,6 +8,11 @@
 </div>
 
 <%= paginate @users %>
+
+<% if @users.empty? %>
+    <p>There are no freelancers right now. Help us fix that! <%= link_to 'Sign Up with LinkedIn', user_omniauth_authorize_path(:linkedin) %>.
+<% end %>
+
 <% @users.each do |user| %>
     <div class="media freelancer-media-item">
         <div class="pull-left">
