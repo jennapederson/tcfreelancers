@@ -6,9 +6,8 @@
             </a>
         </div>
         <div class="media-body">
-            <h4 class="media-heading"><%= user.first_name %> <%= user.last_name %></h4>
-            <h5><%= user.headline %></h5>
-            <p><%= user.available_for_hire? %></p>
+            <h2 class="media-heading"><%= user.first_name %> <%= user.last_name %><% unless user.available_for_hire %> <small>Unavailable for hire</small><% end %></h2>
+            <h4><%= user.headline %></h4>
             <p><%= user.description %></p>
             <p><%= user.twitter_handle %></p>
             <p><%= user.email %></p>
