@@ -1,0 +1,106 @@
+<h2>Edit <%= current_user.first_name %> <%= current_user.last_name %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" }) do |f| %>
+    <%= devise_error_messages! %>
+
+        <div class="form-group">
+            <%= f.label :first_name, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.text_field :first_name, :autofocus => true, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :last_name, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.text_field :last_name, :autofocus => true, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :headline, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.text_field :headline, :autofocus => true, :placeholder => 'Freelance copywriter', class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :description, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.text_area :description, :autofocus => true, :placeholder => 'Describe services in two tweets or less.', class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :email, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :profile_url, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.url_field :profile_url, :autofocus => true, :placeholder => 'https://www.linkedin.com/in/janedoe', class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :profile_image, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.url_field :profile_image, :autofocus => true, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :twitter_handle, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.text_field :twitter_handle, :autofocus => true, :placeholder => 'janedoe', class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <%= f.label :available_for_hire do %>
+                        <%= f.check_box :available_for_hire %>Available for hire?
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :password, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+                <p class="help-block">(leave blank if you don't want to change it)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :password_confirmation, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :current_password, class: 'control-label col-sm-2' %>
+            <div class="col-sm-10">
+                <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+                <p class="help-block">(we need your current password to confirm your changes)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <%= f.submit "Update", class: 'btn btn-default' %>
+            </div>
+        </div>
+<% end %>
+
+<div class="col-sm-offset-2 col-sm-10">
+<p class="lead">Unhappy? Want to cancel your account? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
+</div>
+
+
