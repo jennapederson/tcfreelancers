@@ -32,6 +32,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 
+gem 'google-analytics-rails', '~> 0.0.6'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
