@@ -33,6 +33,7 @@ gem 'omniauth'
 gem 'omniauth-linkedin'
 
 gem 'google-analytics-rails', '~> 0.0.6'
+gem 'newrelic_rpm'
 
 
 # Use ActiveModel has_secure_password
