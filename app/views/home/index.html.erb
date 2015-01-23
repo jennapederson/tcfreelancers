@@ -26,13 +26,17 @@
 
             <%= mail_to user.email, class: "social-icon-btn" do %>
                 <i class="btn fa fa-envelope-o fa-2x fa-fw"></i>
+            <% end %>
+            <% unless user.twitter_handle.empty? %>
+                <%= link_to "https://www.twitter.com/#{user.twitter_handle}", class: "social-icon-btn" do %>
+                    <i class="btn fa fa-twitter fa-2x fa-fw"></i>
                 <% end %>
-            <%= link_to "https://www.twitter.com/#{user.twitter_handle}", class: "social-icon-btn" do %>
-                <i class="btn fa fa-twitter fa-2x fa-fw"></i>
-                <% end %>
-            <%= link_to user.profile_url, class: "social-icon-btn" do %>
+            <% end %>
+            <% unless user.profile_url.empty? %>
+                <%= link_to user.profile_url, class: "social-icon-btn" do %>
                     <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
                 <% end %>
+            <% end %>
             
             <p><strong>Specialties:</strong> <%= user.specialty_list %></p>
             <p><%= user.description %></p>            
