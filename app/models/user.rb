@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:linkedin]
 
   validates :twitter_handle, length: { maximum: 15 }, :allow_blank => true
+  validates :description, length: { maximum: 280 }, :allow_blank => true
   validate :specialty_list_count
 
   acts_as_taggable_on :specialties

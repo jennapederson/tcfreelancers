@@ -9,6 +9,7 @@ FactoryGirl.define do
     first_name            'John'
     last_name             'Doe'
     headline              'headline'
+    description           'description'
     profile_url           'http://www.linkedin.com/in/johndoe'
     profile_image         'http://www.linkedin.com/in/image'
   end

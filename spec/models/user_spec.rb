@@ -2,7 +2,7 @@ require "rails_helper"
 require "ostruct"
 
 describe User do
-
+  
   auth_new_user = OpenStruct.new({
       "provider"=>"linkedin",
       "uid"=>"xyz123",
@@ -37,6 +37,7 @@ describe User do
 
   it { should validate_uniqueness_of(:email) }
   it { should ensure_length_of(:twitter_handle).is_at_most(15) }
+  it { should ensure_length_of(:description).is_at_most(280) }
 
   describe "specialties" do
     it "should allow no more than 5 specialties" do
