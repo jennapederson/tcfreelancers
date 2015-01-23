@@ -32,6 +32,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 
+gem 'acts-as-taggable-on', '~> 3.4'
+
 gem 'google-analytics-rails', '~> 0.0.6'
 gem 'newrelic_rpm'
 

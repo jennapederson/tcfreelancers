@@ -38,6 +38,20 @@ describe User do
   it { should validate_uniqueness_of(:email) }
   it { should ensure_length_of(:twitter_handle).is_at_most(15) }
 
+  describe "specialties" do
+    it "should allow no more than 5 specialties" do
+      u = User.from_omniauth(auth_new_user)
+      u.specialty_list.add("1, 2, 3, 4, 5", parse: true)
+      u.save
+
+      expect(u.valid?).to be(true)
+      u.specialty_list.add("6")
+      u.save
+
+      expect(u.valid?).to be(false)
+    end
+  end
+
   describe "from_omniauth" do
     context "for new user" do
       it "should copy data from linkedin" do

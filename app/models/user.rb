@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:linkedin]
 
   validates :twitter_handle, length: { maximum: 15 }, :allow_blank => true
+  validate :specialty_list_count
+
+  acts_as_taggable_on :specialties
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -19,5 +22,9 @@ class User < ActiveRecord::Base
       user.profile_url = auth.info.urls.public_profile
       user.profile_image = auth.info.image
     end
+  end
+
+  def specialty_list_count
+    errors.add(:specialty_list, "only allows 5 specialties") unless specialty_list.count <= 5
   end
 end

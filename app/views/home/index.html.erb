@@ -34,7 +34,7 @@
                     <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
                 <% end %>
             
-            <p><strong>Specialties:</strong> Data Analysis, Product Management, Project Management, User Experience, Front-end Development</p>            
+            <p><strong>Specialties:</strong> <%= user.specialty_list %></p>
             <p><%= user.description %></p>            
             
             <% if user == current_user %>
