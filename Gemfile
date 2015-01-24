@@ -15,6 +15,7 @@ gem 'therubyracer'
 
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
+gem 'sass-rails'
 
 gem "kaminari"
 gem 'kaminari-bootstrap', '~> 3.0.1'
@@ -33,6 +34,7 @@ gem 'omniauth'
 gem 'omniauth-linkedin'
 
 gem 'acts-as-taggable-on', '~> 3.4'
+gem "select2-rails", "3.5.9.2"
 
 gem 'google-analytics-rails', '~> 0.0.6'
 gem 'newrelic_rpm'

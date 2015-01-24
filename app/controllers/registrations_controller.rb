@@ -3,6 +3,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   # Overwrite update_resource to let users to update their user without giving a password
   def update_resource(resource, params)
+    puts "PARAMS"
+    puts params
+
     if current_user.provider == "linkedin"
       params.delete("current_password")
       resource.update_without_password(params)
@@ -14,7 +17,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name, :headline, :description, :profile_url, :profile_image, :twitter_handle, :available_for_hire)
+    devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name, :headline, :description, :profile_url, :profile_image, :twitter_handle, :available_for_hire, :specialty_tag_list)
   end
-
 end

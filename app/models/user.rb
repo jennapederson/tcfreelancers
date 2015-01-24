@@ -28,4 +28,12 @@ class User < ActiveRecord::Base
   def specialty_list_count
     errors.add(:specialty_list, "only allows 5 specialties") unless specialty_list.count <= 5
   end
+
+  def specialty_tag_list
+    self.specialty_list.join(",")
+  end
+
+  def specialty_tag_list=(new_list)
+    self.specialty_list = new_list
+  end
 end
