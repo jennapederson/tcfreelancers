@@ -1,9 +1,10 @@
 $(document).on('page:change', function() {
-  $('.specialty-list-autocomplete').each(function() {
-    var placeholder = $(this).data('placeholder');
-    var url = $(this).data('url');
-    var saved = $(this).data('saved');
-    $(this).select2({
+    var select = $('#user_specialty_tag_list');
+    var placeholder = $(select).data('placeholder');
+    var url = $(select).data('url');
+    var saved = $(select).data('saved');
+
+    $(select).select2({
         tags: true,
         placeholder: placeholder,
         minimumInputLength: 1,
@@ -43,5 +44,15 @@ $(document).on('page:change', function() {
             return item.name;
         }
     });
-  });
+
+     
+    $("#user_specialty_tag_list").select2("container").find("ul.select2-choices").sortable({
+        containment: 'parent',
+        start: function() {
+            $("#user_specialty_tag_list").select2("onSortStart");
+        },
+        update: function() {
+            $("#user_specialty_tag_list").select2("onSortEnd");
+        }
+    });
 });

@@ -35,6 +35,7 @@ gem 'omniauth-linkedin'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 gem "select2-rails", "3.5.9.2"
+gem 'jquery-ui-rails'
 
 gem 'google-analytics-rails', '~> 0.0.6'
 gem 'newrelic_rpm'
