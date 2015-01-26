@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :description, length: { maximum: 280 }, :allow_blank => true
   validate :specialty_list_count
 
-  acts_as_taggable_on :specialties
+  acts_as_ordered_taggable_on :specialties
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
