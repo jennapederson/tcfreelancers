@@ -27,12 +27,12 @@
             <%= mail_to user.email, class: "social-icon-btn" do %>
                 <i class="btn fa fa-envelope-o fa-2x fa-fw"></i>
             <% end %>
-            <% unless user.twitter_handle.empty? %>
+            <% unless user.twitter_handle.blank? %>
                 <%= link_to "https://www.twitter.com/#{user.twitter_handle}", class: "social-icon-btn" do %>
                     <i class="btn fa fa-twitter fa-2x fa-fw"></i>
                 <% end %>
             <% end %>
-            <% unless user.profile_url.empty? %>
+            <% unless user.profile_url.blank? %>
                 <%= link_to user.profile_url, class: "social-icon-btn" do %>
                     <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
                 <% end %>
