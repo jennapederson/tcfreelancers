@@ -48,6 +48,7 @@ $(document).on('page:change', function() {
      
     $("#user_specialty_tag_list").select2("container").find("ul.select2-choices").sortable({
         containment: 'parent',
+        cursor: 'move',
         start: function() {
             $("#user_specialty_tag_list").select2("onSortStart");
         },
