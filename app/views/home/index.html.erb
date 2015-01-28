@@ -1,11 +1,11 @@
 <% unless user_signed_in? %>
     <div class="jumbotron">
           <h1>Twin Cities Freelancers</h1>
-          <h3>Looking to hire a local freelancer for your next project?</h3>
-          <p>Well you're in the right place! Please scroll down to search for an available freelancer for your next project.</p>
+          <h3>Looking for a local freelancer for your next project? </h3>
+          <p>You're in the right place! Scroll down to search.</p>
 
           <h3>Are you a freelancer who wants to be listed on this site?</h3>
-          <p>Feel free to sign up with LinkedIn to add your profile!</p>
+          <p>Sign up with LinkedIn to add your profile!</p>
           
           <p><%= button_to user_omniauth_authorize_path(:linkedin), class: 'btn btn-primary btn-lg' do %>
                 <i class="fa fa-linkedin fa-2x"></i> Sign Up with LinkedIn
