@@ -1,11 +1,13 @@
-<div class="jumbotron">
-      <h1>TCFreelancers</h1>
-      <p>Connect with LinkedIn to add your own freelancer profile or search the list for an available freelancer for your next project.</p>
-      <p><%= button_to user_omniauth_authorize_path(:linkedin), class: 'btn btn-primary btn-lg' do %>
-            <i class="fa fa-linkedin fa-2x"></i> Sign Up with LinkedIn
-        <% end %>
-      </p>
-</div>
+<% unless user_signed_in? %>
+    <div class="jumbotron">
+          <h1>TCFreelancers</h1>
+          <p>Connect with LinkedIn to add your own freelancer profile or search the list for an available freelancer for your next project.</p>
+          <p><%= button_to user_omniauth_authorize_path(:linkedin), class: 'btn btn-primary btn-lg' do %>
+                <i class="fa fa-linkedin fa-2x"></i> Sign Up with LinkedIn
+            <% end %>
+          </p>
+    </div>
+<% end %>
 
 <%= paginate @users %>
 
@@ -13,40 +15,42 @@
     <p>There are no freelancers right now. Help us fix that! <%= link_to 'Sign Up with LinkedIn', user_omniauth_authorize_path(:linkedin) %>.
 <% end %>
 
-<% @users.each do |user| %>
-    <div class="media freelancer-media-item">
-        <div class="pull-left">
-            <a href="#">
-                <img class="media-object img-circle" src="<%= user.profile_image %>" alt="<%= user.first_name %> <%= user.last_name %>">
-            </a>
-        </div>
-        <div class="media-body">
-            <h2 class="media-heading"><%= user.first_name %> <%= user.last_name %><% unless user.available_for_hire %> <small>Unavailable for hire</small><% end %></h2>
-            <h4><%= user.headline %></h4>
+<div class="freelancers-media-items">
+    <% @users.each do |user| %>
+        <div class="media freelancer-media-item">
+            <div class="pull-left">
+                <a href="#">
+                    <img class="media-object img-circle" src="<%= user.profile_image %>" alt="<%= user.first_name %> <%= user.last_name %>">
+                </a>
+            </div>
+            <div class="media-body">
+                <h2 class="media-heading"><%= user.first_name %> <%= user.last_name %><% unless user.available_for_hire %> <small>Unavailable for hire</small><% end %></h2>
+                <h4><%= user.headline %></h4>
 
-            <p><strong>Specialties:</strong> <%= user.specialty_list %></p>
-            <p><%= user.description %></p>            
-            
-            <%= mail_to user.email, class: "social-icon-btn" do %>
-                <i class="btn fa fa-envelope-o fa-2x fa-fw"></i>
-            <% end %>
-            <% unless user.twitter_handle.blank? %>
-                <%= link_to "https://www.twitter.com/#{user.twitter_handle}", class: "social-icon-btn" do %>
-                    <i class="btn fa fa-twitter fa-2x fa-fw"></i>
+                <p><strong>Specialties:</strong> <%= user.specialty_list %></p>
+                <p><%= user.description %></p>            
+                
+                <%= mail_to user.email, class: "social-icon-btn" do %>
+                    <i class="btn fa fa-envelope-o fa-2x fa-fw"></i>
                 <% end %>
-            <% end %>
-            <% unless user.profile_url.blank? %>
-                <%= link_to user.profile_url, class: "social-icon-btn" do %>
-                    <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
+                <% unless user.twitter_handle.blank? %>
+                    <%= link_to "https://www.twitter.com/#{user.twitter_handle}", class: "social-icon-btn" do %>
+                        <i class="btn fa fa-twitter fa-2x fa-fw"></i>
+                    <% end %>
                 <% end %>
-            <% end %>
-            
-            <% if user == current_user %>
-                <p><%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-default" %></p>
-            <% end %>
+                <% unless user.profile_url.blank? %>
+                    <%= link_to user.profile_url, class: "social-icon-btn" do %>
+                        <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
+                    <% end %>
+                <% end %>
+                
+                <% if user == current_user %>
+                    <p><%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-default" %></p>
+                <% end %>
+            </div>
         </div>
-    </div>
-<% end %>
+    <% end %>
+</div>
 <%= paginate @users %>
 
 
