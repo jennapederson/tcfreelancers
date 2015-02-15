@@ -2,14 +2,14 @@
     <div class="jumbotron">
           <h1>Twin Cities Freelancers</h1>
           <h3>Looking for a local freelancer for your next project? </h3>
-          <p>You're in the right place! Scroll down to search.</p>
+          <p>You're in the right place!</p>
 
           <h3>Are you a freelancer who wants to be listed on this site?</h3>
           <p>Sign up with LinkedIn to add your profile!</p>
           
           <p><%= button_to user_omniauth_authorize_path(:linkedin), class: 'btn btn-primary btn-lg' do %>
-                <i class="fa fa-linkedin fa-2x"></i> Sign Up with LinkedIn
-            <% end %>
+                <i class="fa fa-linkedin fa-2x"></i> Sign Up
+            <% end %>            
           </p>
     </div>
 <% end %>
