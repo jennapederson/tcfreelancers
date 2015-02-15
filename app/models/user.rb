@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :twitter_handle, length: { maximum: 15 }, :allow_blank => true
   validates :description, length: { maximum: 280 }, :allow_blank => true
   validate :specialty_list_count
+  validates :website_url, :url => true, :allow_blank => true
 
   acts_as_ordered_taggable_on :specialties
 

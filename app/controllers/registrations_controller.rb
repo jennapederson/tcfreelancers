@@ -17,6 +17,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name, :headline, :description, :profile_url, :profile_image, :twitter_handle, :available_for_hire, :specialty_tag_list)
+    devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name, :headline, :description, :profile_url, :profile_image, :twitter_handle, :available_for_hire, :specialty_tag_list, :website_url)
   end
 end

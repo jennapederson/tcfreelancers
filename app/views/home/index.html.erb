@@ -49,6 +49,11 @@
                         <i class="btn fa fa-linkedin fa-2x fa-fw"></i>
                     <% end %>
                 <% end %>
+                <% unless user.website_url.blank? %>
+                    <%= link_to user.website_url, class: "social-icon-btn" do %>
+                        <i class="btn fa fa-link fa-2x fa-fw"></i>
+                    <% end %>
+                <% end %>
                 
                 <% if user == current_user %>
                     <p><%= link_to 'Edit', edit_user_registration_path(user), class: "btn btn-default" %></p>

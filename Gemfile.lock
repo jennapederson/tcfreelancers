@@ -36,6 +36,13 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    activevalidators (3.2.0)
+      activemodel (>= 3.0.0)
+      countries (~> 0.9.3)
+      date_validator
+      mail
+      phony (>= 1.9.0)
+      rake (>= 0.8.7)
     acts-as-taggable-on (3.4.3)
       activerecord (>= 3.2, < 5)
     arel (6.0.0)
@@ -61,6 +68,11 @@ GEM
     coffee-script-source (1.8.0)
     columnize (0.9.0)
     commonjs (0.2.7)
+    countries (0.9.3)
+      currencies (~> 0.4.2)
+    currencies (0.4.2)
+    date_validator (0.7.1)
+      activemodel
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -134,6 +146,7 @@ GEM
       omniauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    phony (2.10.3)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -247,6 +260,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activevalidators (~> 3.2.0)
   acts-as-taggable-on (~> 3.4)
   better_errors
   byebug

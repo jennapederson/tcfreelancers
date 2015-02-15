@@ -40,6 +40,8 @@ gem 'jquery-ui-rails'
 gem 'google-analytics-rails', '~> 0.0.6'
 gem 'newrelic_rpm'
 
+gem 'activevalidators', '~> 3.2.0'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

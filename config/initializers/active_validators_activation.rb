@@ -1,0 +1,1 @@
+ActiveValidators.activate(:url)
