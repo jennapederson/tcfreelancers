@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150320184547) do
+ActiveRecord::Schema.define(version: 20150321040312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150320184547) do
     t.string   "profile_url"
     t.string   "profile_image"
     t.string   "description"
-    t.boolean  "available_for_hire"
+    t.boolean  "available_for_hire",     default: true
     t.string   "twitter_handle"
     t.string   "website_url"
     t.boolean  "email_private",          default: false
